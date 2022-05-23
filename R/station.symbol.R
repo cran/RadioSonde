@@ -1,5 +1,8 @@
 station.symbol <-
-function (cx, cy, direction=0, speed=NA, fill=rep(0,length(cx)), temp=NA, press=NA, dewpt=NA, circle=TRUE, cex=1)
+function (cx, cy, direction=0, speed=NA, 
+          fill=rep(0,length(cx)), 
+          temp=NA, press=NA, dewpt=NA, circle=TRUE, cex=1,
+          spdcolor = "green", lwd=2)
 {
  ### press is actually height in upper air ###
  ns = length(cx)
@@ -44,7 +47,7 @@ function (cx, cy, direction=0, speed=NA, fill=rep(0,length(cx)), temp=NA, press=
  scalex <- (cex * (scalex * size))/5
  scaley <- (cex * (scaley * size))/5
  for (i in 1:ns) {
-   spdcolor = "green"
+  
    tcolor = "blue"
    dptcolor = "blue"
    pscolor = "blue"
@@ -203,7 +206,7 @@ function (cx, cy, direction=0, speed=NA, fill=rep(0,length(cx)), temp=NA, press=
          if (spd > mspd+3*rspd | spd < mspd-3*rspd)
            spdcolor = "red"
        }
-       segments(S1[1, ], S1[2, ], S2[1, ], S2[2, ], col=spdcolor, lwd=2)
+       segments(S1[1, ], S1[2, ], S2[1, ], S2[2, ], col=spdcolor, lwd=lwd)
      }
    } #end of (!is.na(spd))
  } #end of ns
